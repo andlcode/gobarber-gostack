@@ -20,7 +20,6 @@
     "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-prettier": "^3.3.1",
     "prettier": "^2.2.1",
-    "ts-node-dev": "^1.0.0-pre.57",
     "typescript": "^3.9.7"
   },
   "dependencies": {
@@ -28,6 +27,7 @@
     "express": "^4.17.1",
     "pg": "^8.5.1",
     "reflect-metadata": "^0.1.13",
+    "ts-node-dev": "^1.1.1",
     "typeorm": "^0.2.30",
     "uuidv4": "^6.2.6"
   }
