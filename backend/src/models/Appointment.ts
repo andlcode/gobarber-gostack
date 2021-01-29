@@ -8,7 +8,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 
-import Users from './Users';
+import Users from './User';
 
 @Entity('appointments')
 class Appointment {
@@ -17,14 +17,12 @@ class Appointment {
 
   @ManyToOne(() => Users)
   @JoinColumn({ name: 'provider_id' })
-  @Column()
   provider: Users;
 
   @Column('timestamp with time zone')
   date: Date;
 
   @CreateDateColumn()
-  // eslint-disable-next-line camelcase
   created_at: Date;
 
   @UpdateDateColumn()

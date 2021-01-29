@@ -20,6 +20,7 @@
 
   ],
   "rules": {
+    "@typescript-eslint/camelCase": "off",
      "import/extensions": [
       "error",
       "ignorePackages",
