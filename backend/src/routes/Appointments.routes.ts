@@ -1,15 +1,17 @@
 import 'reflect-metadata';
-
 import { Router } from 'express';
 import { getCustomRepository } from 'typeorm';
 import { parseISO } from 'date-fns';
+import ensureAuthenticated from '../middleware/ensureAuthenticated';
 
 import AppointmentsRepository from '../repositories/AppointmentsRepository';
 import CreateAppointmentService from '../services/CreateAppointmentService';
 
 const appointmentsRouter = Router();
 
+appointmentsRouter.use(ensureAuthenticated);
 appointmentsRouter.get('/', async (request, response) => {
+  console.log(request.user);
   const appointmentsRepository = getCustomRepository(AppointmentsRepository);
   const appointments = await appointmentsRepository.find();
 
@@ -18,6 +20,7 @@ appointmentsRouter.get('/', async (request, response) => {
 
 appointmentsRouter.post('/', async (request, response) => {
   try {
+    // eslint-disable-next-line camelcase
     const { provider_id, date } = request.body;
 
     const parsedDate = parseISO(date);
